@@ -41,5 +41,5 @@ test('The stack should show the last item pushed to the stack', async () => {
 	await alert.sendKeys("Kaffe");
 	await alert.accept();
 	let stack = await driver.findElement(By.id('top_of_stack')).getText();
-	expect(stack).toEqual("kaffe");
+	expect(stack).toEqual("Kaffe");
 });
