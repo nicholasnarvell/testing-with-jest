@@ -33,3 +33,13 @@ describe('Clicking "Pusha till stacken"', () => {
 		await alert.accept();
 	});
 });
+
+test('The stack should show the last item pushed to the stack', async () => {
+	let push = await driver.findElement(By.id('push'));
+	await push.click();
+	let alert = await driver.switchTo().alert();
+	await alert.sendKeys("Kaffe");
+	await alert.accept();
+	let stack = await driver.findElement(By.id('top_of_stack')).getText();
+	expect(stack).toEqual("kaffe");
+});
